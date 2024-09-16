@@ -1,37 +1,42 @@
-/* Reset some default styles */
-body, h1, h2, p, ul {
+/* Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Basic styling */
+/* General styles */
 body {
     font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
 }
 
-/* Container for centering content */
+/* Container */
 .container {
     width: 80%;
     margin: 0 auto;
+    padding: 20px 0;
 }
 
-/* Header styling */
+/* Header */
 header {
-    background: #007bff;
+    background-color: #000;
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-header h1 {
+header .logo h1 {
     float: left;
 }
 
 header nav ul {
-    float: right;
     list-style: none;
+    float: right;
 }
 
 header nav ul li {
@@ -40,29 +45,59 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #fff;
     text-decoration: none;
+    color: #007bff;
 }
 
-/* Hero section styling */
+header nav ul li a:hover {
+    color: #0056b3;
+}
+
+/* Hero section */
 .hero {
+    background-color: #f0f0f0;
     text-align: center;
-    padding: 50px 20px;
-    background: #fff;
+    padding: 100px 0;
 }
 
 .hero h2 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #000;
 }
 
 .quote {
+    font-size: 1.2rem;
+    color: #333;
     font-style: italic;
+    margin-top: 20px;
 }
 
-/* Footer styling */
+/* Content section */
+.content {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.content .feature {
+    margin-bottom: 20px;
+}
+
+.content h3 {
+    font-size: 2rem;
+    color: #000;
+}
+
+/* Footer */
 footer {
-    background: #007bff;
+    background-color: #000;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
 }
