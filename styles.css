@@ -1,59 +1,68 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset some default styles */
+body, h1, h2, p, ul {
     margin: 0;
     padding: 0;
-    color: #333;
 }
 
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Container for centering content */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header styling */
 header {
-    background: #f8f8f8;
-    padding: 20px;
-    text-align: center;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 0;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2em;
+    float: left;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
+header nav ul {
+    float: right;
+    list-style: none;
 }
 
-nav ul li {
+header nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin-left: 20px;
 }
 
-nav ul li a {
+header nav ul li a {
+    color: #fff;
     text-decoration: none;
-    color: #007aff;
 }
 
+/* Hero section styling */
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background: #f0f0f0;
+    background: #fff;
 }
 
 .hero h2 {
-    font-size: 2em;
-    margin: 0;
+    margin-bottom: 20px;
 }
 
-blockquote {
-    font-size: 1.2em;
-    color: #666;
-    border-left: 4px solid #007aff;
-    padding-left: 20px;
-    margin: 20px auto;
-    max-width: 600px;
+.quote {
+    font-style: italic;
 }
 
+/* Footer styling */
 footer {
-    background: #f8f8f8;
-    padding: 10px;
+    background: #007bff;
+    color: #fff;
     text-align: center;
-    font-size: 0.8em;
+    padding: 10px 0;
 }
