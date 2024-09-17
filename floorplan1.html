@@ -25,6 +25,24 @@
             padding: 10px;         /* 添加内边距 */
             box-sizing: border-box; /* 包括内边距和边框在宽度和高度内 */
         }
+        .copy-btn {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .copy-btn:hover {
+            background-color: #45a049;
+        }
+        #timer {
+            margin-top: 20px;
+            font-size: 18px;
+            font-family: Arial;
+        }
+        
     </style>
 </head>
 <body>
@@ -40,6 +58,8 @@
         <div class="floorplan-container">
             <img id="floorplan-img" src="floorplan1.jpg" alt="户型图">
             <textarea id="user-input" placeholder="请在此输入你的答案"></textarea>
+            <button class="copy-btn" onclick="copyText()">复制内容</button>
+            <div id="timer">时间: <span id="timer-display">00:00:00</span></div>
             <button onclick="toggleAnswer()">显示/隐藏标准答案</button>
             <div id="standard-answer" class="hidden">
                 <p id="answer-text">标准答案 1:<br><br>
@@ -62,8 +82,10 @@
         <p>&copy; 2024 户型图练习网站</p>
     </footer>
     <script>
+        // 计时器功能
         let timerInterval;
         let seconds = 0;
+        const timerDisplay = document.getElementById('timer-display');
 
         function startTimer() {
             timerInterval = setInterval(updateTimer, 1000);
@@ -71,14 +93,11 @@
 
         function updateTimer() {
             seconds++;
-            const minutes = Math.floor(seconds / 60);
+            const hrs = Math.floor(seconds / 3600);
+            const mins = Math.floor((seconds % 3600) / 60);
             const secs = seconds % 60;
-            document.getElementById('timer').textContent =
-                `计时器: ${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-        }
-
-        function stopTimer() {
-            clearInterval(timerInterval);
+            timerDisplay.textContent = 
+                `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
         }
 
         function toggleAnswer() {
@@ -92,16 +111,18 @@
             }
         }
 
-        function copyToClipboard() {
-            var copyText = document.getElementById("user-input");
-            copyText.select();  // 选择文本框内容
-            copyText.setSelectionRange(0, 99999);  // 对于移动设备兼容
-            document.execCommand("copy");  // 执行复制操作
-            alert("内容已复制: " + copyText.value);  // 提示用户已复制
+        // 复制文本功能
+        function copyText() {
+            const userInput = document.getElementById('user-input');
+            userInput.select();
+            document.execCommand('copy');
+            alert('内容已复制到剪贴板');
         }
-
-        // 启动计时器
-        window.onload = startTimer;
+        
+        // 页面加载时启动计时器
+        window.onload = function() {
+            startTimer();
+        };
     </script>
 </body>
 </html>
