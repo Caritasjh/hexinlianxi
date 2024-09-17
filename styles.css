@@ -23,7 +23,7 @@ body {
 
 /* Header */
 header {
-    background-color: #333;
+    background-color: #25211e;
     color: #fff;
     padding: 20px 0;
     position: sticky;
@@ -56,7 +56,7 @@ header nav ul li a:hover {
 
 /* Hero section */
 .hero {
-    background-color: #f9f9f9;
+    background-color: #ce571f;
     text-align: center;
     padding: 100px 20px;
 }
@@ -76,7 +76,7 @@ header nav ul li a:hover {
 
 /* Content section */
 .content {
-    background-color: #fff;
+    background-color: #e8e3cd;
     padding: 60px 20px;
     text-align: center;
 }
