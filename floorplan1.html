@@ -37,11 +37,6 @@
         .copy-btn:hover {
             background-color: #45a049;
         }
-        #timer {
-            margin-top: 20px;
-            font-size: 18px;
-            font-family: Arial;
-        }
         
     </style>
 </head>
@@ -59,21 +54,9 @@
             <img id="floorplan-img" src="floorplan1.jpg" alt="户型图">
             <textarea id="user-input" placeholder="请在此输入你的答案"></textarea>
             <button class="copy-btn" onclick="copyText()">复制内容</button>
-            <div id="timer">时间: <span id="timer-display">00:00:00</span></div>
             <button onclick="toggleAnswer()">显示/隐藏标准答案</button>
             <div id="standard-answer" class="hidden">
-                <p id="answer-text">标准答案 1:<br><br>
-                    1.总体布局为将右下角去除后再将第二行高度压扁到三分之一的正九宫格。<br><br>
-                    2.第二行横向均分为六段。最右段再去除其右半部分，最左段上下均分，分别并入左上、左下宫格，其余互相打通成为走廊。<br><br>
-                    3.中上宫格横向中分为左右两格，分别称为A、B。<br><br>
-                    4.右移B的右墙直到B扩大一倍（右上宫格会变窄），再将B向上扩大1/5，然后上下分割为“B上”，“B下”两格。B上比B下小1/5。<br><br>
-                    5.约定门/窗宽度如为所在墙的一半，则称为“半门/窗”，如为3/4，则为“3/4门/窗”，如等长，则为“全门/窗”。门、窗默认在所在墙居中设置。<br><br>
-                    6.顶侧所有墙开半窗，其中A格顶窗左移半个身位。<br><br>
-                    7.左下宫格下侧墙开2/3飘窗，飘窗向下探出深度为其宽度的1/4，并向下开全窗。<br><br>
-                    8.B2、下中两格与走廊之间隔挡去除。<br><br>
-                    9.左上、右上、左下格分别向走廊上下侧开3/4门。A格向下开1/2门，并左移半个身位。<br><br>
-                    10.中下格向下扩展1/3，扩展格先去掉其左侧1/16，再向上开3/5门、向下开等大窗。<br><br>
-                    11.走廊右端开4/5门。
+                <p id="answer-text">标准答案 1:
                 </p>
             </div>
         </div>
@@ -82,24 +65,6 @@
         <p>&copy; 2024 户型图练习网站</p>
     </footer>
     <script>
-        // 计时器功能
-        let timerInterval;
-        let seconds = 0;
-        const timerDisplay = document.getElementById('timer-display');
-
-        function startTimer() {
-            timerInterval = setInterval(updateTimer, 1000);
-        }
-
-        function updateTimer() {
-            seconds++;
-            const hrs = Math.floor(seconds / 3600);
-            const mins = Math.floor((seconds % 3600) / 60);
-            const secs = seconds % 60;
-            timerDisplay.textContent = 
-                `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-        }
-
         function toggleAnswer() {
             var answerDiv = document.getElementById('standard-answer');
             if (answerDiv.classList.contains('hidden')) {
@@ -118,11 +83,6 @@
             document.execCommand('copy');
             alert('内容已复制到剪贴板');
         }
-        
-        // 页面加载时启动计时器
-        window.onload = function() {
-            startTimer();
-        };
     </script>
 </body>
 </html>
