@@ -1,130 +1,106 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* General styles */
+/* 通用样式 */
 body {
     font-family: Arial, sans-serif;
-    background-color: #fff;
-    color: #000;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333; /* 深灰色字体 */
+    background-color: #f4f4f4; /* 背景色 */
 }
 
-/* Container */
-.container {
+/* 头部样式 */
+header {
+    background-color: #FFAA33; /* 橙色背景 */
+    color: #fff; /* 白色文字 */
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
 }
 
-/* Header */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+header nav {
+    display: flex;
+    align-items: center;
 }
 
 header .logo h1 {
-    float: left;
+    margin: 0;
+    font-size: 1.5em;
 }
 
-header nav ul {
+header ul {
     list-style: none;
-    float: right;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
-header nav ul li {
-    display: inline;
+header li {
     margin-left: 20px;
 }
 
-header nav ul li a {
+header a {
+    color: #fff; /* 白色链接 */
     text-decoration: none;
-    color: #f76c6c; /* Orange */
 }
 
-header nav ul li a:hover {
-    color: #c75450; /* Darker orange */
+header a:hover {
+    text-decoration: underline;
 }
 
-/* Hero section */
+/* 主体样式 */
+main {
+    padding: 20px 0;
+}
+
 .hero {
-    background-color: #f9f9f9;
+    background-color: #FFAA33; /* 橙色背景 */
+    color: #fff; /* 白色文字 */
+    padding: 50px 0;
     text-align: center;
-    padding: 100px 20px;
 }
 
 .hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #000;
-}
-
-.quote {
-    font-size: 1.2rem;
-    color: #333;
-    font-style: italic;
-    margin-top: 20px;
-}
-
-/* Content section */
-.content {
-    background-color: #fff;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.content .feature {
-    margin-bottom: 20px;
-}
-
-.content h3 {
-    font-size: 2rem;
-    color: #000;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9rem;
-}
-
-footer p {
     margin: 0;
+    font-size: 2em;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    header .logo h1 {
-        font-size: 1.5rem;
-    }
-    
-    header nav ul {
-        float: none;
-        text-align: center;
-        margin-top: 10px;
-    }
-    
-    header nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-    
-    .hero h2 {
-        font-size: 2rem;
-    }
-    
-    .quote {
-        font-size: 1rem;
-    }
+.hero .quote {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.content {
+    padding: 20px;
+    background-color: #fff; /* 白色背景 */
+    color: #333; /* 深灰色文字 */
+}
+
+.feature {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.feature h3 {
+    margin-top: 0;
+}
+
+/* 页脚样式 */
+footer {
+    background-color: #333; /* 深灰色背景 */
+    color: #fff; /* 白色文字 */
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
