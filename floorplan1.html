@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>户型图练习 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+        #standard-answer {
+            text-align: left;      /* 设置左对齐 */
+            margin: 20px 0;        /* 添加一些外边距 */
+            font-family: Arial;    /* 设置字体 */
+            font-size: 16px;       /* 设置字体大小 */
+        }
+        #user-input {
+            font-family: Arial;    /* 与标准答案一致的字体 */
+            font-size: 16px;       /* 与标准答案一致的字体大小 */
+            line-height: 1.5;      /* 行高可选，保持一致的可读性 */
+            width: 100%;           /* 使 textarea 占满宽度 */
+            height: 200px;         /* 适当设置高度 */
+            padding: 10px;         /* 添加内边距 */
+            box-sizing: border-box; /* 包括内边距和边框在宽度和高度内 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>户型图练习 1</h1>
+        <nav>
+            <a href="index.html">返回主页</a>
+            <a id="prev-link" href="floorplan5.html">上一练习</a>
+            <a id="next-link" href="floorplan2.html">下一练习</a>
+        </nav>
+    </header>
+    <main>
+        <div class="floorplan-container">
+            <img id="floorplan-img" src="floorplan1.jpg" alt="户型图">
+            <textarea id="user-input" placeholder="请在此输入你的答案"></textarea>
+            <button onclick="toggleAnswer()">显示/隐藏标准答案</button>
+            <div id="standard-answer" class="hidden">
+                <p id="answer-text">标准答案 1:<br><br>
+                    1.总体布局为将右下角去除后再将第二行高度压扁到三分之一的正九宫格。<br><br>
+                    2.第二行横向均分为六段。最右段再去除其右半部分，最左段上下均分，分别并入左上、左下宫格，其余互相打通成为走廊。<br><br>
+                    3.中上宫格横向中分为左右两格，分别称为A、B。<br><br>
+                    4.右移B的右墙直到B扩大一倍（右上宫格会变窄），再将B向上扩大1/5，然后上下分割为“B上”，“B下”两格。B上比B下小1/5。<br><br>
+                    5.约定门/窗宽度如为所在墙的一半，则称为“半门/窗”，如为3/4，则为“3/4门/窗”，如等长，则为“全门/窗”。门、窗默认在所在墙居中设置。<br><br>
+                    6.顶侧所有墙开半窗，其中A格顶窗左移半个身位。<br><br>
+                    7.左下宫格下侧墙开2/3飘窗，飘窗向下探出深度为其宽度的1/4，并向下开全窗。<br><br>
+                    8.B2、下中两格与走廊之间隔挡去除。<br><br>
+                    9.左上、右上、左下格分别向走廊上下侧开3/4门。A格向下开1/2门，并左移半个身位。<br><br>
+                    10.中下格向下扩展1/3，扩展格先去掉其左侧1/16，再向上开3/5门、向下开等大窗。<br><br>
+                    11.走廊右端开4/5门。
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 户型图练习网站</p>
+    </footer>
+    <script>
+        let timerInterval;
+        let seconds = 0;
+
+        function startTimer() {
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            seconds++;
+            const minutes = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            document.getElementById('timer').textContent =
+                `计时器: ${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        function toggleAnswer() {
+            var answerDiv = document.getElementById('standard-answer');
+            if (answerDiv.classList.contains('hidden')) {
+                answerDiv.classList.remove('hidden');
+                document.querySelector('button').textContent = '隐藏标准答案';
+            } else {
+                answerDiv.classList.add('hidden');
+                document.querySelector('button').textContent = '显示标准答案';
+            }
+        }
+
+        function copyToClipboard() {
+            var copyText = document.getElementById("user-input");
+            copyText.select();  // 选择文本框内容
+            copyText.setSelectionRange(0, 99999);  // 对于移动设备兼容
+            document.execCommand("copy");  // 执行复制操作
+            alert("内容已复制: " + copyText.value);  // 提示用户已复制
+        }
+
+        // 启动计时器
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
